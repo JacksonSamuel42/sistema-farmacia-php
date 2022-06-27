@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Impresion Termica</title>
+</head>
+<body>
+    <button id="btnImprimir">Imprimir</button>
+</body>
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#btnImprimir').click(function(){
+           $.ajax({
+               url: 'ticket.php',
+               type: 'POST',
+               success: function(response){
+                   if(response==1){
+                       alert('Imprimiendo....');
+                   }else{
+                       alert('Error');
+                   }
+               }
+           }); 
+        });
+    });
+</script>
+</html>
